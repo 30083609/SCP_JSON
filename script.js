@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         } else {
                             speechSynthesis.cancel();
                             isSpeaking = false;
-                            readAloudButton.innerText = "Read Aloud";
+                            readAloudButton.innerText = "Read Description";
                         }
                     };
 
