@@ -1,0 +1,307 @@
+/* General Styling for body, navigation, and buttons */
+body {
+    background-color:black;
+    color: #00ff00;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-button {
+    background-color: #00ff00;
+    border: 1px solid #00ff00;
+    color: black;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: black;
+    color: #00ff00;
+}
+
+/* Main Content Area */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #00ff00;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h2 {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #00ff00;
+    text-align: center;
+    margin-top: 10px;
+}
+
+h3 {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #00ff00;
+    text-align: center;
+    margin-top: 10px;
+}
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+}
+/* Title and image container styling */
+.scp-title {
+    font-size: 28px;
+    color: #00ff00;
+    margin-bottom: 20px;
+}
+
+.scp-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.scp-image {
+    max-width: 450px;
+    border: 2px solid green;
+    border-radius: 8px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Description Section */
+.scp-description {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Button Styling */
+.button {
+    background-color: #00ff00;
+    border: 1px solid #00ff00;
+    color: black;
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button:hover {
+    background-color: black;
+    color: #00ff00;
+}
+
+/* Styling for all image-related containers */
+.image-container, .key005, .read-more-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.image-container img, .key005 img, .read-more-content img {
+    max-width: 100%;
+    margin: 20px;
+    display: block;
+    border: 2px solid green;
+    border-radius: 8px;
+    height: auto;
+}
+
+/* Ensure consistent styling for image descriptions */
+.image-description {
+    text-align: center;
+    font-size: 14px;
+    color: #00ff00;
+    margin-top: 10px;
+}
+
+/* Flexbox gallery for images to line up horizontally and adjust sizes */
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;  /* Increased gap for more spacing */
+    flex-wrap: nowrap;  /* Ensures all images remain on the same row */
+    padding: 20px;
+}
+
+.image-gallery .image-card {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border: 2px solid green;
+    border-radius: 8px;
+    text-align: center;
+    width: 400px;  /* Double the size of the original image */
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
+}
+
+
+.image-gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid green;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+
+    .scp-image-container {
+        padding: 10px;
+    }
+
+    .scp-image {
+        max-width: 100%;
+    }
+
+    .button {
+        width: 100px;
+    }
+
+    .image-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-gallery .image-card {
+        width: 100%;
+    }
+}
+
+/* Adjusting for larger images at the bottom */
+.images-row {
+    display: flex;
+    justify-content: center;
+    max-width: 90%;
+    margin: 20px;
+}
+
+.images-row .image-container {
+    width: 400px;
+    text-align: center;
+}
+
+.images-row img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.images-row img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ff00;
+}
+
+.image-description {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #00ff00;
+    text-align: center;
+    padding: 0 10px;
+    height: auto;
+}
+
+.key005 {
+    border: 2px solid #00ff00;
+    width: 300px;
+    font-size: 0.7rem;
+    padding: 15px;
+    background-color: #121212;
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+/* General styling for the grid layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid columns */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.grid-item {
+    background-color: #1f1f1f;
+    border: 2px solid green;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure that all grid items take up the same height */
+}
+
+.grid-item img {
+    width: 100%;  /* Ensure the image fills the grid-item */
+    height: 250px;  /* Fix the height of the images */
+    object-fit: cover;  /* Ensures that the images are cropped properly to fit */
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.grid-item:hover {
+    transform: scale(1.05); /* Adds a slight zoom effect on hover */
+    box-shadow: 0 0 20px #00ff00;
+}
+
+/* Styling for image descriptions */
+.image-description {
+    color: #00ff00;
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}

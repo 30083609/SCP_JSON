@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCP Archive</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul id="navbar" class="nav-list">
+            <li><a href="#" class="nav-button" id="home-link">Home</a></li>
+            <li><a href="#" class="nav-button" data-scp="scp-002">SCP-002</a></li>
+            <li><a href="#" class="nav-button" data-scp="scp-003">SCP-003</a></li>
+            <li><a href="#" class="nav-button" data-scp="scp-004">SCP-004</a></li>
+            <li><a href="#" class="nav-button" data-scp="scp-005">SCP-005</a></li>
+            <li><a href="#" class="nav-button" data-scp="scp-006">SCP-006</a></li>
+        </ul>
+    </nav>
+    
+    <main id="scp-content">
+        <div class="scp-title">
+            <h1 id="page-title">Welcome to the SCP Archive</h1>
+        </div>
+        <p id="page-description">Click on an SCP link above to view details.</p>
+
+        <!-- Image Section -->
+        <div class="scp-image-container">
+            <a href="#">
+                <img id="scp-image" src="images/Entrance.webp" alt="Hidden Bunker Entrance" class="scp-image">
+            </a>
+        </div>
+
+        <!-- SCP Description Section -->
+        <div class="scp-description">
+            <p id="scp-subject"></p>
+            <p id="scp-class"></p>
+            <p id="scp-containment"></p>
+            <button class="button read-aloud-button" style="display: none;">Read Aloud</button>
+            <button class="button read-more-button" style="display: none;">Read More</button>
+            <div class="read-more-content" style="display: none;"></div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "scp-002": {
+    "subject": "SCP-002",
+    "class": "Euclid",
+    "summary": "SCP-002 is a large, fleshy, organic structure resembling a tumorous growth with the appearance of an apartment room. Inside, it contains furniture that appears to be made of human biological material (bone, skin, etc.). Objects placed inside the room are transformed into additional furnishings, and it has been observed that people who enter the room are sometimes absorbed by it and turned into new furniture. Due to the potentially fatal nature of SCP-002, strict containment procedures are enforced.",
+    "containment": "SCP-002 must be monitored by at least two guards at all times, and access is restricted to Level 3 personnel.",
+    "image": "images/SCP-002/Initial Discovery of SCP-002.webp",
+    "content_file": "descriptions/scp-002.html"
+  },
+  "scp-003": {
+    "subject": "SCP-003",
+    "class": "Safe",
+    "summary": "SCP-003 is composed of two components: SCP-003-1, a biological computer-like entity, and SCP-003-2, a protective outer covering. SCP-003-1 is believed to be of artificial origin, capable of influencing electronic devices and seemingly growing more complex when exposed to external energy sources. SCP-003-2 is a heat-producing shell that regulates the temperature of SCP-003-1, preventing its expansion. If SCP-003-1's temperature drops below a certain level, it may attempt to expand and possibly take over other electronic systems or environments.",
+    "containment": "SCP-003 is contained in a temperature-controlled chamber to prevent activation.",
+    "image": "images/SCP-003/bio1.webp",
+    "content_file": "descriptions/scp-003.html"
+  },
+  "scp-004": {
+    "subject": "SCP-004",
+    "class": "Euclid",
+    "summary": "SCP-004 consists of a large, heavy door and 12 different keys, all of which interact with the door in different ways. Only one key (SCP-004-1) safely opens the door, leading to a large, mysterious space beyond. When any of the other keys are used, the result is often lethal or unpredictable, with some keys leading to extreme danger or causing bizarre phenomena. SCP-004 is highly anomalous and presents both physical and psychological risks to those who attempt to interact with it improperly.",
+    "containment": "SCP-004 and all keys are stored in a secure vault. Access requires Level 4 clearance.",
+    "image": "images/SCP-004/Door with keys.webp",
+    "content_file": "descriptions/scp-004.html"
+  },
+  "scp-005": {
+    "subject": "SCP-005",
+    "class": "Safe",
+    "summary": "SCP-005 is a standard-looking key with the extraordinary ability to open any lock, regardless of the mechanism or security features. While SCP-005 itself is not considered dangerous, its potential to bypass virtually any secure system makes it a significant security risk. SCP-005 is kept under strict containment, as its misuse could have far-reaching consequences for both Foundation security and the public at large.",
+    "containment": "SCP-005 is stored in a small safe with restricted access to authorized personnel.",
+    "image": "images/SCP-005/SCP-005.webp",
+    "content_file": "descriptions/scp-005.html"
+  },
+  "scp-006": {
+    "subject": "SCP-006",
+    "class": "Safe",
+    "summary": "SCP-006 is a small, natural spring that produces water with remarkable regenerative properties. Drinking SCP-006's water can cure diseases, heal injuries, and significantly slow the aging process. However, prolonged use has unknown side effects, and the Foundation limits access to it. SCP-006 is considered valuable but is also classified due to the possible dangers it poses if not carefully controlled.",
+    "containment": "SCP-006 is kept in a secure facility, with access limited to a select group of personnel.",
+    "image": "images/SCP-006/SCP-006.webp",
+    "content_file": "descriptions/scp-006.html"
+  }
+}
