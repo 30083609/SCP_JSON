@@ -43,68 +43,96 @@ document.addEventListener('DOMContentLoaded', () => {
         resetReadMoreButton();
     }
 
-    function loadSCPData(scpId) {
-        fetch('scp-data.json')
-            .then(response => response.json())
-            .then(data => {
-                const scpDetails = data[scpId];
+function loadSCPData(scpId) {
+    // Collapse any previously expanded "Read More" content
+    readMoreContent.style.display = 'none';
+    readMoreButton.innerText = "Read More";
 
-                if (scpDetails) {
-                    // Update image, subject, class, and containment content
-                    scpImage.src = scpDetails.image;
-                    scpImage.alt = scpDetails.subject;
-                    scpSubject.innerText = `Subject: ${scpDetails.subject}`;
-                    scpClass.innerText = `Class: ${scpDetails.class}`;
-                    scpContainment.innerText = `Containment: ${scpDetails.containment}`;
+    fetch('scp-data.json')
+        .then(response => response.json())
+        .then(data => {
+            const scpDetails = data[scpId];
 
-                    // Set the title and description for the SCP page
-                    pageTitle.innerText = scpDetails.subject;
-                    pageDescription.innerText = `Details about ${scpDetails.subject}:`;
+            if (scpDetails) {
+                // Update image, subject, class, and containment content
+                scpImage.src = scpDetails.image;
+                scpImage.alt = scpDetails.subject;
+                scpSubject.innerText = `Subject: ${scpDetails.subject}`;
+                scpClass.innerText = `Class: ${scpDetails.class}`;
+                scpContainment.innerText = `Containment: ${scpDetails.containment}`;
 
-                    // Show the buttons on SCP entry pages
-                    readAloudButton.style.display = 'inline-block';
-                    readMoreButton.style.display = 'inline-block';
+                // Set the title and description for the SCP page
+                pageTitle.innerText = scpDetails.subject;
+                pageDescription.innerText = `Details about ${scpDetails.subject}:`;
 
-                    // Set up text-to-speech for description with toggle
-                    readAloudButton.onclick = () => {
-                        if (!isSpeaking) {
-                            speech = new SpeechSynthesisUtterance(scpDetails.description);
-                            speechSynthesis.speak(speech);
-                            isSpeaking = true;
-                            readAloudButton.innerText = "Stop Reading";
-                        } else {
-                            speechSynthesis.cancel();
-                            isSpeaking = false;
-                            readAloudButton.innerText = "Read Description";
+                // Show the buttons on SCP entry pages
+                readAloudButton.style.display = 'inline-block';
+                readMoreButton.style.display = 'inline-block';
+
+                // Set up text-to-speech for description with toggle and British voice selection
+                readAloudButton.onclick = () => {
+                    if (!isSpeaking) {
+                        let description = scpDetails.description;
+                        let chunkLength = 200;
+                        let index = 0;
+
+                        function speakNextChunk() {
+                            if (index < description.length) {
+                                let chunk = description.substring(index, index + chunkLength);
+                                speech = new SpeechSynthesisUtterance(chunk);
+
+                                // Set voice to a British accent, if available
+                                const voices = speechSynthesis.getVoices();
+                                speech.voice = voices.find(voice => voice.lang === 'en-GB') || voices[0];
+
+                                speechSynthesis.speak(speech);
+                                index += chunkLength;
+
+                                // When the current chunk finishes, read the next one
+                                speech.onend = speakNextChunk;
+                            } else {
+                                isSpeaking = false;
+                                readAloudButton.innerText = "Read Description";
+                            }
                         }
-                    };
 
-                    // "Read More" functionality to toggle content visibility
-                    readMoreButton.onclick = () => {
-                        if (readMoreContent.style.display === 'block') {
-                            // Collapse the content
-                            readMoreContent.style.display = 'none';
-                            readMoreButton.innerText = "Read More";
-                        } else {
-                            // Expand the content
-                            fetch(scpDetails.content_file)
-                                .then(response => response.text())
-                                .then(text => {
-                                    readMoreContent.innerHTML = text;
-                                    readMoreContent.style.display = 'block';
-                                    readMoreButton.innerText = "Read Less";  // Change to "Read Less"
-                                    styleReadMoreImages();
-                                });
-                        }
-                    };
-                } else {
-                    console.error(`SCP entry with ID ${scpId} not found in the data.`);
-                }
-            })
-            .catch(error => {
-                console.error('Error loading SCP data:', error);
-            });
-    }
+                        isSpeaking = true;
+                        readAloudButton.innerText = "Stop Reading";
+                        speakNextChunk();
+                    } else {
+                        speechSynthesis.cancel();
+                        isSpeaking = false;
+                        readAloudButton.innerText = "Read Description";
+                    }
+                };
+
+                // "Read More" functionality to toggle content visibility
+                readMoreButton.onclick = () => {
+                    if (readMoreContent.style.display === 'block') {
+                        // Collapse the content
+                        readMoreContent.style.display = 'none';
+                        readMoreButton.innerText = "Read More";
+                    } else {
+                        // Expand the content
+                        fetch(scpDetails.content_file)
+                            .then(response => response.text())
+                            .then(text => {
+                                readMoreContent.innerHTML = text;
+                                readMoreContent.style.display = 'block';
+                                readMoreButton.innerText = "Read Less";  // Change to "Read Less"
+                                styleReadMoreImages();
+                            });
+                    }
+                };
+            } else {
+                console.error(`SCP entry with ID ${scpId} not found in the data.`);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading SCP data:', error);
+        });
+}
+
 
     // Function to style images in "Read More" section
     function styleReadMoreImages() {
