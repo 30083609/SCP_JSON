@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     readAloudButton.style.display = 'inline-block';
                     readMoreButton.style.display = 'inline-block';
 
-                    // Set up text-to-speech for summary with toggle
+                    // Set up text-to-speech for description with toggle
                     readAloudButton.onclick = () => {
                         if (!isSpeaking) {
-                            speech = new SpeechSynthesisUtterance(scpDetails.summary);
+                            speech = new SpeechSynthesisUtterance(scpDetails.description);
                             speechSynthesis.speak(speech);
                             isSpeaking = true;
                             readAloudButton.innerText = "Stop Reading";
